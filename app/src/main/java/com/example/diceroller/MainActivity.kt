@@ -27,9 +27,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         val dice = Dice(6)
+        val dice2 = Dice(6)
         val diceRoll = dice.roll()
+        val diceRoll2 = dice2.roll()
         val resultTextView: TextView = findViewById(R.id.textView)
+        val resultTextView2: TextView = findViewById(R.id.textView2)
         resultTextView.text = diceRoll.toString()
+        resultTextView2.text = diceRoll2.toString()
     }
 }
 
