@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
 //            val resultTextView: TextView = findViewById(R.id.textView)
 //            resultTextView.text = "6"
             rollDice()
-            val toast = Toast.makeText(this, "Dice Rolled! :>", Toast.LENGTH_SHORT)
-            toast.show()
+            val notif = Toast.makeText(this, "Dice Rolled! :>", Toast.LENGTH_SHORT) //Toast: quick little message for the user
+            notif.show()
         }
     }
 
