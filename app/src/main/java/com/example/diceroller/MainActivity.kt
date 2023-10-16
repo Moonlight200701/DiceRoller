@@ -2,8 +2,7 @@ package com.example.diceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -16,13 +15,15 @@ class MainActivity : AppCompatActivity() {
 //            val resultTextView: TextView = findViewById(R.id.textView)
 //            resultTextView.text = "6"
             rollDice()
-            val notif = Toast.makeText(
-                this,
-                "Dice Rolled! :>",
-                Toast.LENGTH_SHORT
-            ) //Toast: quick little message for the user
-            notif.show()
+//            val notif = Toast.makeText(
+//                this,
+//                "Dice Rolled! :>",
+//                Toast.LENGTH_SHORT
+//            ) //Toast: quick little message for the user
+//            notif.show()
+
         }
+        rollDice()
     }
 
     private fun rollDice() {
@@ -30,10 +31,34 @@ class MainActivity : AppCompatActivity() {
         val dice2 = Dice(6)
         val diceRoll = dice.roll()
         val diceRoll2 = dice2.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        val resultTextView2: TextView = findViewById(R.id.textView2)
-        resultTextView.text = diceRoll.toString()
-        resultTextView2.text = diceRoll2.toString()
+////        val resultTextView: TextView = findViewById(R.id.textView)
+////        val resultTextView2: TextView = findViewById(R.id.textView2)
+//        resultTextView.text = diceRoll.toString()
+//        resultTextView2.text = diceRoll2.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView)
+        val diceImage2: ImageView = findViewById(R.id.imageView2)
+        val drawableResource = when(diceRoll){
+            1->R.drawable.dice_1
+            2->R.drawable.dice_2
+            3->R.drawable.dice_3
+            4->R.drawable.dice_4
+            5->R.drawable.dice_5
+            else->R.drawable.dice_6
+        }
+
+        val drawableResource2 = when(diceRoll2){
+            1->R.drawable.dice_1
+            2->R.drawable.dice_2
+            3->R.drawable.dice_3
+            4->R.drawable.dice_4
+            5->R.drawable.dice_5
+            else->R.drawable.dice_6
+        }
+        diceImage.setImageResource(drawableResource)
+        diceImage2.setImageResource(drawableResource2)
+        diceImage.contentDescription = diceRoll.toString()
+        diceImage2.contentDescription = diceRoll2.toString()
+
     }
 }
 
