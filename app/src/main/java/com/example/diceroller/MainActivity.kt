@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,11 +28,13 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(5000, 100) {
                 override fun onTick(millisUntilFinished: Long) {
                     resultTextView3.text = "Rolling!"
+                    rollButton.isVisible = false
                     rollDice()
                 }
 
                 override fun onFinish() {
                     resultTextView3.text = "Done :>"
+                    rollButton.isVisible = true
                 }
             }.start()
 
